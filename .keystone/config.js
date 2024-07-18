@@ -60,6 +60,7 @@ var lists = {
     fields: {
       title: (0, import_fields.text)({ validation: { isRequired: true } }),
       container: (0, import_fields.text)({ validation: { isRequired: true } }),
+      url: (0, import_fields.text)(),
       // with this field, you can add some Tags to Posts
       metrics: (0, import_fields.relationship)({
         ref: "Metric.project",
@@ -137,7 +138,10 @@ var keystone_default = withAuth(
       url: "file:./keystone.db"
     },
     lists,
-    session
+    session,
+    server: {
+      cors: true
+    }
   })
 );
 //# sourceMappingURL=config.js.map
